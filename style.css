@@ -15,6 +15,7 @@ body {
     font-family: "Manrope", sans-serif;
     font-size: 13px;
     background: var(--Light-Grayish-Blue);
+    color: var(--Very-Dark-Grayish-Blue);
 }
 .main {
     height: 100vh;
@@ -23,32 +24,107 @@ body {
 }
 .card {
     margin: 1em;
-    width: 320px ;
+    width: 330px ;
     background: #fff;
     border-radius: 1em;
     overflow: hidden;
+    box-shadow: 0 3em 4em -3em var(--Grayish-Blue);
+
+    position: relative; /** for div.modal */
     
     .container-image {    
         img {
             width: 100%;
             aspect-ratio: 12 / 8;
             object-fit: cover;
+            vertical-align: top;
         }
     }
     
     .container-content {
-        padding: 1em;
-
+        padding: 3em;
+        padding-bottom: 1.8em;
+        display: grid;
+        gap: 1em;
+        
         .highlight {
-            font-weight: 700;
+            font-size: 1.3em;
+            font-weight: 800;
         }
+        .general-text {
+            line-height: 150%;
+            font-weight: 500;
+            color: var(--Desaturated-Dark-Blue);
+        }
+        .footer-card {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2em;
 
+        }
+        .user {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+            
+            .user__photo {
+                height: 3em;
+                border-radius: 50%;
+            }
+            .user__info {
+                .name {
+                    font-weight: 800;
+                }
+                .date {
+                    color: var(--Grayish-Blue);
+                    line-height: 150%;
+                }
+            }
+        }
     }
-}
+    .btn-share {
+        background: var(--Light-Grayish-Blue);
+        width: 3em;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        padding: 0.5em;
+        
+        svg {
+            position: relative;
+            fill: var(--Desaturated-Dark-Blue);
+            left: -0.1em;
+        } 
+    }
+    /** MODAL */
+    .modal {
+        visibility: hidden;
+        background: var(--Very-Dark-Grayish-Blue);
+        position: absolute;
+        bottom: 0;
+        height: 6.6em;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 3em;
+        align-items: center;
+        
+        .column-1 {
+            display: flex;
+            align-items: center;
+            gap: 1em;
 
-.btn-share {
-    img {
-        width: 20px;
-
+            .modal__share {
+                letter-spacing: 0.4em;
+                text-transform: uppercase;
+                color: var(--Grayish-Blue);
+            }
+        }
+        .column-2 .btn-share {
+            background: var(--Grayish-Blue);
+            svg {
+                fill: #fff;
+            }
+        }
     }
 }
