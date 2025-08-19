@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
-* {
+*,
+::before,
+::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -27,12 +29,14 @@ body {
     width: 330px ;
     background: #fff;
     border-radius: 1em;
-    overflow: hidden;
     box-shadow: 0 3em 4em -3em var(--Grayish-Blue);
-
+    
     position: relative; /** for div.modal */
     
     .container-image {    
+        overflow: hidden;
+        border-radius: 1em 1em 0 0;
+
         img {
             width: 100%;
             aspect-ratio: 12 / 8;
@@ -100,7 +104,6 @@ body {
     /** MODAL */
     .modal {
         visibility: hidden;
-        
         background: var(--Very-Dark-Grayish-Blue);
         position: absolute;
         bottom: 0;
@@ -110,6 +113,8 @@ body {
         justify-content: space-between;
         padding: 0 3em;
         align-items: center;
+        border-radius: 0 0 1em 1em;
+
         
         .column-1 {
             display: flex;
@@ -130,6 +135,9 @@ body {
         }
     }
 }
+.card .active {
+    visibility: visible;
+}
 
 @media screen and (min-width: 1000px){
     .card {
@@ -137,12 +145,37 @@ body {
         width: 700px;
 
         .container-image {
-
             flex-basis: 100%;
+            border-radius: 1em 0 0 1em;
+
             img {
                 height: 100%;
-               
-                /* aspect-ratio: 1 / 1; */
+            }
+        }
+
+        .modal {
+            width: auto;
+            height: auto;
+            padding: 1.4em 3em;
+            border-radius: 1em;
+            bottom: 8em;
+            right: -4em;
+            box-shadow: 0 3em 4em -3em var(--Grayish-Blue);
+            
+
+            .column-2 .btn-share {
+                display: none;
+            }
+
+            &::before {
+                content: '';
+                width: 2em;
+                height: 2em;
+                position: absolute;
+                bottom: -10px;
+                right: 7.4em ;
+                rotate: 45deg;
+                background: var(--Very-Dark-Grayish-Blue);
             }
         }
     }
