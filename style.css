@@ -98,7 +98,7 @@ body {
     }
     /** MODAL */
     .modal {
-        visibility: hidden;
+        /* visibility: hidden; */
         background: var(--Very-Dark-Grayish-Blue);
         position: absolute;
         bottom: 0;
